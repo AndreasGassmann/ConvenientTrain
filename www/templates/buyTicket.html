@@ -1,0 +1,46 @@
+<div class="modal">
+    <ion-header-bar>
+        <h1 class="title">Ticket kaufen</h1>
+        <div class="buttons">
+            <button class="button button-clear button-positive" ng-click="closeBuyTicket()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div>
+            <div><b>{{getRouteType(searchRoute.data.activeButton)}}</b></div>
+            <div style="width: 25%; float: left;">Von</div><div>{{currentRoute.from.station.name}}</div>
+            <div style="width: 25%; float: left;">Nach</div><div>{{currentRoute.to.station.name}}</div>
+            <div style="width: 25%; float: left;">Wann</div><div>{{currentRoute.from.departure | date:'dd.MM.yyyy HH:mm'}}</div>
+        </div>
+
+        <div class="list list-inset" show-delete=true
+             show-reorder=true
+             can-swipe=true>
+            <!-- TODO: AddSelf -->
+            <button ng-hide="ticketForMe" ng-click="showAddSelf()" class="button button-block button-assertive">Ticket für mich lösen</button>
+            <br />
+            <button ng-click="showAddFriend()" class="button button-block button-assertive">Passagier hinzufügen</button>
+
+            <div ng-if="passengers.data.length > 0 || ticketForMe"  class="item item-divider">
+                Passagiere
+            </div>
+            <ion-item ng-if="ticketForMe" class="item">
+                Eigenes Ticket
+                <span style="float:right;"  ng-click="deleteMyTicket()" class="ion-minus-circled assertive"></span>
+            </ion-item>
+            <ion-item ng-if="passengers.data.length > 0" class="item" ng-repeat="passenger in passengers.data">
+                {{passenger.name}}
+                <span style="float:right;" ng-click="passengers.data.splice($index, 1)" class="ion-minus-circled assertive"></span>
+            </ion-item>
+            <br />
+            <ion-item>
+                {{passengers.data.length + (ticketForMe ? 1 : 0)}} tickets
+            </ion-item>
+            <ion-item>
+                Preis: {{(ticketForMe ? 20 : 0) + passengers.data.length*20 }} CHF
+            </ion-item>
+            <br />
+            <button ng-click="buyTicket(currentRoute.from.station.name, currentRoute.to.station.name)" class="button button-block button-assertive">Ticket kaufen</button>
+        </div>
+    </ion-content>
+</div>

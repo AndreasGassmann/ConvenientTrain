@@ -1,0 +1,54 @@
+<div class="modal">
+    <ion-header-bar>
+        <h1 class="title">Registrieren</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeRegister()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <label class="item item-input">
+            <input type="text" placeholder="Vorname">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Nachname">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="E-Mail">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Passwort">
+        </label>
+        <div class="item item-divider">
+            Zahlungsinformationen
+        </div>
+        <label class="item item-input">
+            <input type="text" placeholder="Name auf Kreditkarte">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Kreditkartennummer">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="CVV Nummer">
+        </label>
+        <div class="item item-divider">
+            Benötigte Zonen
+        </div>
+        <ul>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Gleis 7
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Unter 16 oder Halb-Tax
+            </li>
+        </ul>
+        <br />
+        <button ng-click="doRegister()" class="button button-block button-assertive">Registrieren</button>
+
+    </ion-content>
+</div>

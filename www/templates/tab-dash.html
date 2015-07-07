@@ -1,0 +1,49 @@
+<ion-view view-title="Fahrplan">
+  <ion-nav-buttons side="secondary">
+    <button ng-click="showLogin()" ng-hide="settings.isLoggedIn" class="button button-positive">{{settings.isLoggedIn ? '' : 'Anmelden'}}</button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="button-bar">
+      <a ng-click="activeButton(1)" class="button button-outline button-assertive" ng-class="{'active' : searchRoute.data.activeButton == 1}">Schnell</a>
+      <a ng-click="activeButton(2)" class="button button-outline button-assertive" ng-class="{'active' : searchRoute.data.activeButton == 2}">Rundfahrt</a>
+      <a ng-click="activeButton(3)" class="button button-outline button-assertive" ng-class="{'active' : searchRoute.data.activeButton == 3}">Warm</a>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" ng-model="searchRoute.data.from" placeholder="Von">
+      </label>
+      <label ng-hide="searchRoute.data.activeButton == 2" class="item item-input">
+        <input type="text" ng-model="searchRoute.data.to" placeholder="Nach">
+      </label>
+      <br />
+      <label class="item item-input">
+        <input type="text" ng-model="searchRoute.data.via" placeholder="Via">
+      </label>
+    </div>
+    <div class="list">
+      <div>
+        <div style="width:100px; float:left;">
+          <div class="button-bar">
+            <a ng-click="searchRoute.data.direction = 0" class="button button-small button-outline button-assertive" ng-class="{'active' : searchRoute.data.direction == 0}">Ab</a>
+            <a ng-click="searchRoute.data.direction = 1" class="button button-small button-outline button-assertive" ng-class="{'active' : searchRoute.data.direction == 1}">An</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <label class="item item-input">
+    <input type="text" ng-model="myDate" placeholder="Datum">
+  </label><label class="item item-input">
+    <input type="text" ng-model="myTime" placeholder="Zeit">
+  </label><br />
+    <ul class="list">
+      <a class="item item-icon-right" style="height: 47px; padding-top: 12px;" href="#/tab/dash/options">
+        Weitere Optionen<i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+    </ul>
+  </ion-content>
+  <div class="bar bar-subfooter">
+    <a style="margin-top: -5px; color:#387ef5" ng-hide="searchRoute.data.activeButton == 2" ng-click="oppositeDirection(searchRoute.data.from, searchRoute.data.to)" class="button button-clear">Umgekehrte Richtung</a>
+    <a style="margin-top: -5px; color:#387ef5" ng-click="getRoute()" class="button button-clear">Verbindung suchen</a>
+  </div>
+</ion-view>

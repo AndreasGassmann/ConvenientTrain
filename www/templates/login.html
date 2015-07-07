@@ -1,0 +1,20 @@
+<div class="modal">
+    <ion-header-bar>
+        <h1 class="title">Login</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <label class="item item-input">
+            <input type="text" placeholder="E-Mail">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Passwort">
+        </label>
+        <ion-item ng-click="showRegister()">Noch keinen Account?<br />Registrieren sie sich hier!</ion-item>
+        <br />
+        <button ng-click="doLogin()" class="button button-block button-assertive">Login</button>
+
+    </ion-content>
+</div>

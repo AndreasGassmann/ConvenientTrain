@@ -1,0 +1,16 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{currentTicket.from}} - {{currentTicket.to}}">
+  <ion-content class="padding">
+    <p>
+      Von: {{currentTicket.from}}<br />
+      Nach: {{currentTicket.to}}<br />
+      Zeit: {{currentTicket.date | date:'dd.MM.yyyy HH:mm'}}
+    </p>
+    <img ng-src="img/qrcode.png" style="width: 256px; height: 256px; margin-left: 50px;">
+  </ion-content>
+</ion-view>

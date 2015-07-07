@@ -1,0 +1,62 @@
+<div class="modal">
+    <ion-header-bar>
+        <h1 class="title">Eigenes Ticket kaufen</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeAddSelf()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="item item-divider">
+            Klasse
+        </div>
+        <label class="item item-radio">
+            <input type="radio" name="group">
+            <div class="item-content">
+                1. Klasse
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <label class="item item-radio">
+            <input type="radio" name="group" checked>
+            <div class="item-content">
+                2. Klasse
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <div class="item item-divider">
+            Benötigte Zonen
+        </div>
+        <ul>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                </label>
+                Zone 110<span style="float:right;">5 CHF</span>
+            </li>
+
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                </label>
+                Zone 114<span style="float:right;">5 CHF</span>
+            </li>
+
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                </label>
+                Zone 115<span style="float:right;">5 CHF</span>
+            </li>
+
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                </label>
+                Zone 136<span style="float:right;">5 CHF</span>
+            </li>
+        </ul>
+        <br />
+        <button ng-click="addMyTicket()" class="button button-block button-assertive">Ticket hinzufügen</button>
+
+    </ion-content>
+</div>

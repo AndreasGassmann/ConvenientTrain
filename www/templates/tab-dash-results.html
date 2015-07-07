@@ -1,0 +1,29 @@
+<ion-view view-title="Ergebnisse">
+  <ion-content class="padding">
+    <div class="list list-inset">
+      <div class="item item-icon-right">
+        <div><b>{{getRouteType(searchRoute.data.activeButton)}}</b></div>
+        <div style="width: 25%; float: left;">Von</div><div>{{searchRoute.data.from}}</div>
+        <div style="width: 25%; float: left;">Nach</div><div>{{searchRoute.data.to}}</div>
+        <div style="width: 25%; float: left;">Wann</div>
+        <div>
+          <span ng-if="searchRoute.data.date">{{searchRoute.data.date | date:'dd.MM.yyyy'}}</span>
+          <span ng-if="!searchRoute.data.date">jetzt</span>
+        </div>
+      </div>
+      <div class="item col-header item-icon-right">
+        <div style="float:left; width:25%">Ab</div>
+        <div style="float:left; width:25%">An</div>
+        <div style="float:left; width:25%">Dauer</div>
+        <div style="float:left; width:25%">Umst.</div>
+      </div>
+      <a class="item item-icon-right" ng-repeat="(key, route) in routes.response.connections" href="#/tab/dash/results/detail/{{key}}">
+        <div style="float:left; width:25%">{{route.from.departureTimestamp*1000 | date:'HH:mm'}}</div>
+        <div style="float:left; width:25%">{{route.to.arrivalTimestamp*1000 | date:'HH:mm'}}</div>
+        <div style="float:left; width:25%">{{((route.to.arrivalTimestamp - route.from.departureTimestamp)-3600)*1000 | date:'HH:mm'}}</div>
+        <div style="float:left; width:25%">{{route.sections.length - 1}}</div>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

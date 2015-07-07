@@ -1,0 +1,25 @@
+<ion-view view-title="Details">
+  <ion-nav-buttons side="secondary">
+    <button ng-click="showBuyTicket()" class="button button-positive">Ticket kaufen</button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list list-inset">
+      <div class="item item-icon-right">
+        <div><b>{{getRouteType(searchRoute.data.activeButton)}}</b></div>
+        <div style="width: 25%; float: left;">Wann</div><div>{{currentRoute.from.departureTimestamp*1000 | date:'dd.MM.yyyy HH:mm'}}</div>
+        <div style="width: 25%; float: left;">Dauer</div><div>{{((currentRoute.to.arrivalTimestamp - currentRoute.from.departureTimestamp)-3600)*1000 | date:'HH:mm'}}</div>
+      </div>
+      <div class="item" ng-repeat="section in currentRoute.sections">
+        <div>
+          <span style="font-weight: bolder;">{{section.departure.departure | date:'HH:mm'}} {{section.departure.station.name}}</span>
+          <span style="float:right;">Pl. {{section.departure.platform}}</span>
+        </div>
+        <div style="margin:15px; font-weight:lighter">{{section.journey.name}} Richtung {{section.journey.to}}</div>
+        <div>
+          <span style="font-weight: bolder;">{{section.arrival.arrival | date:'HH:mm'}} {{section.arrival.station.name}}</span>
+          <span style="float:right;">Pl. {{section.arrival.platform}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
